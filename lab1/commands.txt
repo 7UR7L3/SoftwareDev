@@ -1,0 +1,40 @@
+date		prints the date
+ls -ltr		lists all files in long listing format, sorted in reverse by modification time
+cd ..		moves the working directory one up
+pwd	 		prints the working directory
+who			shows who is logged in
+whoami		prints the active user / effective userid
+man man		describes man functionality
+env			runs a program in a different environment
+
+- - - - -
+
+mkdir cs3308 && cd cs3308				Make a directory named cs3308 and move into that directory.
+cd .. && mv cs3308 csci3308				Rename your directory cs3308 to csci3308. Change to the root directory.
+cp csci3308 csci3308dupe				Make a copy of a file.
+rm csci3308dupe							Delete the copy of your file (Careful!)
+mkdir tmp && rmdir tmp					Make a directory named tmp. Then delete that directory.
+cat file.txt							View the contents of a file.
+less file.txt							2nd way to view the contents of a file.
+head -n 3 file.txt						View just the beginning of a file.
+tail -n 3 file.txt						View just the end of a file.
+grep -rnw . -e "the"					List all files that contain the word the in the file.
+ls | grep the
+find / -name "books.txt"				List full path to all files named books.txt
+zip theZip * && unzip theZip -d /tmp	Zip the contents in your directory into a file named dir.zip Unzip your zipped file dir.zip into a new directory named tmp Tar the contents in your directory into a file named dir.tar Untar your zipped file dir.tar into a new directory named tmp
+tar -cf tarred.tar /tmp/*
+tar -xf tarred.tar
+touch file.txt							Modify a file’s last modified timestamp to now. This also creates a new file if it doesn’t currently exist.
+
+- - - - -
+
+sort lab1								Sort the file based on the userid (first field)
+sort -n -k 3 -t ":" lab1				Sort the file based on the UID. Since it is a number, be sure to specify that it is a number so it sorts the numbers correctly.
+sort -n -k 4,4 -k 3,3 -t ":" lab1		Sort first based on GID, then on UID.
+grep "Marx" lab1						Show all the lines in the file with `Marx in it.
+wc -l lab1								Get the number of lines in the file (from a Unix command)
+wc -l lab1 > tmp						Use your answer from the previous question and now redirect the output to a file named tmp
+echo "wc -l lab1" > getUniqueGID.sh		Now store your answer to the previous question in a separate file with an extension of .sh for example getUniqueGID.sh. Try to run your program. You should get command not found. Try to run ./getUniqueGID.sh You should get Permission denied. Change the permissions on the file to allow users to execute the file. Now, which method runs your program? And why doesn’t the other one execute? And what is a second way to have changed the permissions? And do you know a third way?
+chmod +x getUniqueGID.sh
+chmod 777 getUniqueGID.sh
+chmod a+x getUniqueGID.sh

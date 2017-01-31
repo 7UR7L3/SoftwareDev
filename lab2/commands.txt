@@ -1,0 +1,81 @@
+download zip and extract
+	curl -L https://gist.github.com/dgraham/acfdc4ffc2d6e74fd587/archive/f6f52f1d2a89d627cdee9f3ae76f23f4eefa24ce.zip > lab2.zip
+	unzip lab2.zip -d lab2
+	cd lab2
+
+difference in fruits
+	diff fruitsOld.txt fruitsNew.txt
+		no more cranberry or nectarine or prickly pear. now jackfruit
+		> is in right file, < is in left file
+		-c displays a few lines before and after the changed line
+
+number of lines
+	wc -l testPasswd.txt
+		15 lines
+	wc -c testPasswd.txt
+		692 chars
+
+list of usernames in a passwd
+	cat testPasswd.txt | cut -d ':' -f 1
+
+LN and HW1 columns from grades.txt
+	tail -n +2 grades.txt | cut -d ' ' -f 2,3
+
+groups of users in a passwd, no duplicates, sorted
+	cut -d ':' -f 4 testPasswd.txt | sort -n | uniq
+
+send that into a file in your home directory
+	cut -d ':' -f 4 testPasswd.txt | sort -n | uniq > /home/user/passwdGroups.txt
+
+filter a passwd to display usernames startging with m, w, or s and their home directories
+	grep '^[mws]' testPasswd.txt | cut -d ':' -f 1,6
+
+find and replace per line
+	sed 's/toReplace/replaceWith/' inThisFile
+
+multiple per line / globally find and replace
+	sed 's/toReplace/replaceWith/g' inThisFile
+
+remove all letters
+	sed "s/[a-zA-Z]//g" leetSpeak.txt
+
+remove all numbers
+	sed "s/[0-9]//g" leetSpeak.txt
+
+replace numbers with underscore
+	sed "s/[0-9]/_/g" leetSpeak.txt
+
+pipe multipe sed commands to replace each number with it's respective character
+	sed "s/3/e/g" leetSpeak.txt | sed "s/4/a/g" | sed "s/0/o/g" | sed "s/5/s/g" | sed "s/1/i/g" | sed "s/7/t/g"
+
+script to perform above for any file
+	replace1337.sh:
+		sed "s/3/e/g" $1 | sed "s/4/a/g" | sed "s/0/o/g" | sed "s/5/s/g" | sed "s/1/i/g" | sed "s/7/t/g"
+	ran with:
+		./replace1337.sh fileName.txt
+
+print first and last name and grade percentage
+	awk '{if (NR != 1) { print $1 " " $2 " "  ($3+$4+$5+$6+$7)*100/5 "%" }}' grades.txt
+
+print class average
+	awk '{if (NR != 1) { sum+=($3+$4+$5+$6+$7) } } END {print sum*100/(5*7) "%"}' grades.txt
+
+number of phone numbers
+	grep -c '[0-9]\{3\}-[0-9]\{3\}-[0-9]\{4\}' regex_practice_data.txt
+		770
+
+number of boulder phone numbers
+	grep -c '303-441-[0-9]\{4\}' regex_practice_data.txt
+		51
+
+number of email addresses
+	grep -c -E '\w+@\w+\.\w+' regex_practice_data.txt
+		17705
+
+number of gov email addresses
+	grep -c -E '\w+@\w+\.gov' regex_practice_data.txt
+		52
+
+email addresses of first.last form with first name starting with letter in first half of the alphabet
+	grep -c -E '[a-m]\w+\.\w+@\w+\.\w+' regex_practice_data.txt
+		333

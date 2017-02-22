@@ -1,0 +1,15 @@
+select * from store order by name;
+select * from store order by name limit 3;
+select * from (select * from store order by name desc limit 3) as subt order by name;
+select * from store where price>1;
+select *, qty * price from store;
+select sum(qty*price) from store;
+select count(name) from store;
+select * from course where department_id=1;
+select * from course inner join department on course.department_id=department.id where department.name="CSC";
+select sum(count) from enrollment;
+select count(*) from course;
+select count(*) from department;
+select course.name, department.name from course inner join department on course.department_id=department.id;
+select concat(department.name, course.name) as cs from course inner join department on course.department_id=department.id where department.name="CSC";
+select course.id, course.name, department.name as department, enrollment.count from course inner join department on course.department_id=department.id inner join enrollment on course.id=enrollment.id;

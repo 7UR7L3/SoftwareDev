@@ -1,0 +1,49 @@
+<html>
+<head>
+<title>Hello</title>
+<link href='//fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
+<script src="http://code.jquery.com/jquery-2.2.0.js"></script>
+<style>
+	body
+	{
+		background: rgba(50, 100, 100, .8);
+		flex-direction: horizontal;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 100%;
+	}
+	div
+	{
+		text-align: center;
+		flex: 1;
+		padding: 100px;
+		color: rgb(180, 180, 180);
+		font-size: 100px;
+		font-family: "Sofia";
+	}
+</style>
+</head>
+<body>
+<div>
+<div id="results">Temp:  </div>
+<div id="s">Summary:  </div>
+<div id="h">Humidity:  </div>
+</div>
+
+<script>
+$(document).ready(function() {
+      var url = 'https://api.forecast.io/forecast/2d2a0f9ef782a08cc0282ba42fdf196b/40.014984,-105.270546'
+      $.ajax({url:url, dataType:"jsonp"}).then(function(data) {
+        console.log(data)
+
+        $('#results').append(data.currently.temperature)
+        $('#s').append(data.currently.summary)
+        $('#h').append(data.currently.humidity)
+      })
+    });
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+List all the items sorted alphabetically.
+
+Then list only the first 3.
+
+Then list the last 3.
+
+List only the items that are more than $1 per unit price
+
+List all the items with their extended price (quantity * price)
+
+List the total cost of all the items in the store
+
+How many different items do we have in the store?
+
+List all the CS classes.
+
+What is the total enrollment over all the classes?
+
+How many different classes are taught?
+
+How many different departments are there?
+
+List all the classes in the database, with the department name and the class name on the same line, e.g. CSC 111, CSC 112, …, EGR 250, … CHM 111
+
+List the name of the CS classes so that they are output as “CSC111”, “CSC112”, etc… (in other words, concatenate department with class number.)
+
+List all the information in the database, where each class appears on one 
+line, along with its department, and its enrollment.
+
+Use a tool to create an ER Diagram of these tables.

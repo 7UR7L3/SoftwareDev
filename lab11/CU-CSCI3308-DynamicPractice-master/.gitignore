@@ -1,0 +1,8 @@
+# Editor Cruft
+*~
+
+# C Output
+*.o
+
+# Binaries
+pi

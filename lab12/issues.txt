@@ -1,0 +1,28 @@
+snippet1
+	variable and class names are garbage
+	there could be better comments / documentation
+	the path could be passed in as a command line argument or could run in the current directory instead of the random path
+	what is self.path vs self.p?
+	could structure alarm/door/img as a dictionary / hash directly updating whichever literal is evaluated
+	av doesn't seem to do anything
+	i doesn't need to be defined as 1 initially
+	could structure the poll recursively so the thread wait isn't separate from the while True
+	should actually implement something that utilizes the count of file types, now it doens't do anything
+	could set paths in r instead of in __init__
+	there's probably something that already exists for this
+	the print should be uncommented
+
+snippet2
+	comments should be for other people, not yourself
+	should make main main with __name__ == '__main__'
+	should use os.path methods for filepath construction
+	should set self.path or expect it as input
+
+snippet3
+	can print on one line in stop
+	fix self.path
+	while true could be better expressed as recursive polling
+
+snippet4
+	shouldn't directly use bash as listdir is imported and is better
+	the comment for avg was useful as its implementation wasn't expected
